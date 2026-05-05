@@ -63,6 +63,10 @@ type LocationState = {
   city: string;
 };
 
+type PrayerDashboardProps = {
+  initialNowIso: string;
+};
+
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const PRAYER_DEFINITIONS: PrayerDefinition[] = [
@@ -271,8 +275,8 @@ function ErrorState({
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function PrayerDashboard() {
-  const [now, setNow] = useState(() => new Date());
+export default function PrayerDashboard({ initialNowIso }: PrayerDashboardProps) {
+  const [now, setNow] = useState(() => new Date(initialNowIso));
   const [location, setLocation] = useState<LocationState | null>(null);
   const [schedule, setSchedule] = useState<ScheduleDay[]>([]);
   const [hijriDate, setHijriDate] = useState<string>("");
