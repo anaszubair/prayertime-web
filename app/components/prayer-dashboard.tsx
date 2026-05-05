@@ -346,7 +346,7 @@ export default function PrayerDashboard({ initialNowIso }: PrayerDashboardProps)
         const nextMonth = nextMonthDate.getMonth() + 1;
 
         const base = `https://api.aladhan.com/v1`;
-        const params = `latitude=${lat}&longitude=${lng}&method=${METHOD}`;
+        const params = `latitude=${lat}&longitude=${lng}&method=${METHOD}&school=1`;
 
         const [todayRes, curMonthRes, nextMonthRes] = await Promise.all([
           fetch(`${base}/timings?${params}`),
